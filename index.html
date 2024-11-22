@@ -3,13 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Marlee - Safer Streets for Everyone</title>
+    <title>Marlee 4 Kids - Safer Streets for Everyone</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light+Two&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --primary: #2C5282;
-            --secondary: #48BB78;
-        }
-
         * {
             box-sizing: border-box;
             margin: 0;
@@ -19,39 +17,32 @@
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.6;
+            background: white;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Shadows Into Light Two', cursive;
         }
 
         header {
-            background-color: var(--primary);
-            color: white;
-            padding: 1rem;
+            padding: 2rem 1rem;
             text-align: center;
         }
 
-        nav {
-            background-color: #1A365D;
-            padding: 0.5rem;
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-            padding: 0.5rem 1rem;
-            white-space: nowrap;
+        header h1 {
+            font-size: clamp(3rem, 8vw, 5rem);
+            color: #4CAF50;
         }
 
         .hero {
-            background-color: #EBF8FF;
             padding: 2rem 1rem;
             text-align: center;
         }
 
         .hero h2 {
             margin-bottom: 1rem;
-            font-size: clamp(1.5rem, 4vw, 2.5rem);
+            font-size: clamp(1.8rem, 4vw, 2.8rem);
+            color: #333;
         }
 
         .hero p {
@@ -61,15 +52,16 @@
         }
 
         .cta-button {
-            background-color: var(--secondary);
+            background-color: #4CAF50;
             color: white;
             padding: 0.75rem 1.5rem;
             border: none;
-            border-radius: 4px;
+            border-radius: 25px;
             font-size: clamp(1rem, 2.5vw, 1.2rem);
             cursor: pointer;
             text-decoration: none;
             display: inline-block;
+            font-family: 'Shadows Into Light Two', cursive;
         }
 
         .benefits {
@@ -81,7 +73,8 @@
         .benefits h2 {
             text-align: center;
             margin-bottom: 2rem;
-            font-size: clamp(1.5rem, 4vw, 2rem);
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            color: #333;
         }
 
         .benefit-grid {
@@ -92,39 +85,24 @@
         }
 
         .benefit-card {
-            background: white;
             padding: 1.5rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            border: 3px solid #4CAF50;
+            border-radius: 15px;
         }
 
         .benefit-card h3 {
-            color: var(--primary);
             margin-bottom: 0.5rem;
+            font-size: 1.6rem;
+            color: #333;
         }
 
         @media (max-width: 768px) {
             .benefit-grid {
                 grid-template-columns: 1fr;
             }
-
-            nav {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            nav a {
-                width: 100%;
-                text-align: center;
-                padding: 0.75rem;
-            }
         }
 
         @media (min-width: 769px) {
-            header {
-                padding: 2rem;
-            }
-
             .hero {
                 padding: 4rem 2rem;
             }
@@ -137,23 +115,16 @@
 </head>
 <body>
     <header>
-        <h1>Our Marlee</h1>
-        <p>Making Marlee Avenue safer for everyone</p>
+        <h1>Marlee 4 Kids</h1>
     </header>
-
-    <nav>
-        <a href="#benefits">Benefits</a>
-        <a href="mailto:info@ourmarlee.ca">Contact</a>
-        <a href="#join">Take Action</a>
-    </nav>
 
     <section class="hero">
         <h2>Safer Streets for Our Community</h2>
         <p>Join our campaign for protected bike lanes and wider sidewalks on Marlee Avenue</p>
-        <a href="#join" class="cta-button">Support the Campaign</a>
+        <a href="mailto:info@ourmarlee.ca" class="cta-button">Support the Campaign</a>
     </section>
 
-    <section class="benefits" id="benefits">
+    <section class="benefits">
         <h2>Why We Need Change</h2>
         <div class="benefit-grid">
             <div class="benefit-card">
