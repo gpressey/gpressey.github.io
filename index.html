@@ -13,10 +13,8 @@
             --red: #CC2222;
             --green: #3a9e3a;
             --orange: #E07020;
-            --yellow: #F5D020;
             --cream: #FFFDF5;
             --ink: #1a1a1a;
-            --card-border: 3px solid var(--blue);
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -28,17 +26,13 @@
             line-height: 1.6;
         }
 
-        /* Slight paper texture via repeating gradient */
         body::before {
             content: '';
             position: fixed;
             inset: 0;
             background-image: repeating-linear-gradient(
-                0deg,
-                transparent,
-                transparent 28px,
-                rgba(0,0,0,0.018) 28px,
-                rgba(0,0,0,0.018) 29px
+                0deg, transparent, transparent 28px,
+                rgba(0,0,0,0.018) 28px, rgba(0,0,0,0.018) 29px
             );
             pointer-events: none;
             z-index: 0;
@@ -46,7 +40,6 @@
 
         .page { position: relative; z-index: 1; }
 
-        /* ── HEADER ── */
         header {
             text-align: center;
             padding: 2.5rem 1rem 0;
@@ -57,7 +50,6 @@
             font-size: clamp(3.2rem, 10vw, 5.5rem);
             color: var(--blue);
             line-height: 1;
-            letter-spacing: -1px;
         }
 
         .tagline {
@@ -67,9 +59,6 @@
             margin-top: 0.3rem;
         }
 
-        .tagline .heart { color: var(--red); }
-
-        /* ── HERO ── */
         .hero {
             display: flex;
             flex-direction: column;
@@ -79,31 +68,37 @@
         }
 
         .hero-art {
-            width: min(360px, 80vw);
+            width: min(340px, 78vw);
             margin: 0.5rem 0 1.2rem;
             filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.12));
             animation: floatIn 0.8s ease both;
         }
 
         @keyframes floatIn {
-            from { opacity: 0; transform: translateY(18px); }
+            from { opacity: 0; transform: translateY(16px); }
             to   { opacity: 1; transform: translateY(0); }
         }
 
         .hero-statement {
             font-family: 'Shadows Into Light Two', cursive;
-            font-size: clamp(1.3rem, 3.5vw, 1.8rem);
+            font-size: clamp(1.3rem, 3.5vw, 1.85rem);
             color: var(--ink);
-            max-width: 560px;
+            max-width: 580px;
+            margin-bottom: 0.6rem;
+            line-height: 1.45;
+            animation: floatIn 0.8s 0.1s ease both;
+        }
+
+        .hero-statement strong { color: var(--blue); }
+
+        .hero-sub {
+            font-size: clamp(0.9rem, 2vw, 1rem);
+            color: #555;
+            max-width: 480px;
             margin-bottom: 1.6rem;
-            line-height: 1.4;
+            animation: floatIn 0.8s 0.2s ease both;
         }
 
-        .hero-statement strong {
-            color: var(--blue);
-        }
-
-        /* ── PRIMARY CTA ── */
         .cta-primary {
             display: inline-block;
             background: var(--green);
@@ -113,77 +108,102 @@
             padding: 1rem 2.5rem;
             border-radius: 16px;
             text-decoration: none;
-            box-shadow: 0 4px 0 #267326, 0 6px 16px rgba(58,158,58,0.3);
+            box-shadow: 0 4px 0 #267326, 0 6px 16px rgba(58,158,58,0.28);
             transition: transform 0.12s ease, box-shadow 0.12s ease;
-            animation: floatIn 0.8s 0.2s ease both;
+            animation: floatIn 0.8s 0.3s ease both;
         }
 
         .cta-primary:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 0 #267326, 0 10px 24px rgba(58,158,58,0.35);
+            box-shadow: 0 6px 0 #267326, 0 10px 24px rgba(58,158,58,0.32);
         }
 
-        .cta-primary:active {
-            transform: translateY(1px);
-            box-shadow: 0 2px 0 #267326;
-        }
+        .cta-primary:active { transform: translateY(1px); box-shadow: 0 2px 0 #267326; }
 
         .cta-subtext {
-            margin-top: 0.7rem;
-            font-size: 0.9rem;
-            color: #666;
-            animation: floatIn 0.8s 0.35s ease both;
+            margin-top: 0.6rem;
+            font-size: 0.85rem;
+            color: #777;
+            animation: floatIn 0.8s 0.4s ease both;
         }
 
-        /* ── DIVIDER ── */
         .divider {
             border: none;
             border-top: 2px dashed #ccc;
             margin: 0 auto;
-            max-width: 600px;
+            max-width: 640px;
         }
 
-        /* ── WHY SECTION ── */
-        .why {
+        .context {
             padding: 2rem 1.5rem;
-            max-width: 720px;
+            max-width: 700px;
             margin: 0 auto;
             text-align: center;
         }
 
-        .why h2 {
+        .context h2 {
             font-family: 'Shadows Into Light Two', cursive;
-            font-size: clamp(1.6rem, 4vw, 2.2rem);
+            font-size: clamp(1.6rem, 4vw, 2.1rem);
             color: var(--blue);
-            margin-bottom: 1.2rem;
+            margin-bottom: 0.9rem;
         }
 
-        .why-facts {
+        .context-intro {
+            font-size: 0.97rem;
+            color: #444;
+            max-width: 580px;
+            margin: 0 auto 1.4rem;
+        }
+
+        .project-cards {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
             gap: 1rem;
             text-align: left;
         }
 
-        .fact {
+        .project-card {
             background: white;
             border-left: 5px solid var(--red);
             border-radius: 10px;
-            padding: 1rem 1.1rem;
+            padding: 1.1rem 1.2rem;
             box-shadow: 0 2px 8px rgba(0,0,0,0.07);
         }
 
-        .fact-icon {
-            font-size: 1.6rem;
-            margin-bottom: 0.3rem;
+        .proj-label {
+            font-size: 0.72rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--red);
+            margin-bottom: 0.25rem;
         }
 
-        .fact p {
-            font-size: 0.95rem;
-            color: #333;
+        .project-card h3 {
+            font-family: 'Shadows Into Light Two', cursive;
+            font-size: 1.25rem;
+            color: var(--ink);
+            margin-bottom: 0.4rem;
         }
 
-        /* ── SECONDARY CTA ── */
+        .project-card p {
+            font-size: 0.9rem;
+            color: #444;
+            line-height: 1.55;
+        }
+
+        .status-badge {
+            display: inline-block;
+            margin-top: 0.6rem;
+            background: #fff3f3;
+            border: 1.5px solid var(--red);
+            border-radius: 100px;
+            padding: 0.15rem 0.65rem;
+            font-size: 0.78rem;
+            font-weight: 700;
+            color: var(--red);
+        }
+
         .write-section {
             background: white;
             border: 3px solid var(--blue);
@@ -198,10 +218,10 @@
             font-family: 'Shadows Into Light Two', cursive;
             font-size: clamp(1.6rem, 4vw, 2.1rem);
             color: var(--blue);
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.4rem;
         }
 
-        .write-section p {
+        .write-section > p {
             font-size: 0.95rem;
             color: #555;
             margin-bottom: 1.2rem;
@@ -214,14 +234,13 @@
             background: var(--cream);
             border: 2px solid #ddd;
             border-radius: 12px;
-            padding: 1.2rem;
+            padding: 1.2rem 1.3rem;
             text-align: left;
-            font-size: 0.92rem;
+            font-size: 0.91rem;
             color: #333;
-            line-height: 1.7;
+            line-height: 1.75;
             white-space: pre-line;
-            margin-bottom: 1.2rem;
-            position: relative;
+            margin-bottom: 0.7rem;
         }
 
         .letter-note {
@@ -236,14 +255,14 @@
             flex-wrap: wrap;
             gap: 0.5rem;
             justify-content: center;
-            margin-bottom: 1rem;
+            margin-bottom: 1.1rem;
         }
 
         .email-chip {
             background: #eef3ff;
             border: 1.5px solid var(--blue);
             border-radius: 100px;
-            padding: 0.25rem 0.8rem;
+            padding: 0.25rem 0.85rem;
             font-size: 0.82rem;
             color: var(--blue);
             cursor: pointer;
@@ -266,23 +285,38 @@
             transition: transform 0.12s ease, box-shadow 0.12s ease;
         }
 
-        .cta-secondary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 0 #0d3399;
+        .cta-secondary:hover { transform: translateY(-2px); box-shadow: 0 5px 0 #0d3399; }
+
+        .get-involved {
+            text-align: center;
+            padding: 0 1.5rem 2.5rem;
+            max-width: 600px;
+            margin: 0 auto;
         }
 
-        /* ── FOOTER ── */
+        .get-involved h2 {
+            font-family: 'Shadows Into Light Two', cursive;
+            font-size: clamp(1.5rem, 3.5vw, 2rem);
+            color: var(--green);
+            margin-bottom: 0.5rem;
+        }
+
+        .get-involved p { font-size: 0.95rem; color: #444; }
+
+        .get-involved a { color: var(--blue); font-weight: 700; text-decoration: none; }
+        .get-involved a:hover { text-decoration: underline; }
+
         footer {
             text-align: center;
-            padding: 1.5rem 1rem 2rem;
-            font-size: 0.85rem;
-            color: #999;
+            padding: 1.2rem 1rem 2rem;
+            font-size: 0.82rem;
+            color: #aaa;
+            border-top: 1px solid #e8e8e0;
         }
 
         footer a { color: var(--orange); text-decoration: none; }
         footer a:hover { text-decoration: underline; }
 
-        /* ── COPY TOAST ── */
         .toast {
             position: fixed;
             bottom: 2rem;
@@ -299,108 +333,97 @@
             z-index: 100;
         }
 
-        .toast.show {
-            opacity: 1;
-            transform: translateX(-50%) translateY(0);
-        }
+        .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
 
-        /* ── RESPONSIVE ── */
         @media (max-width: 500px) {
             .write-section { margin: 0 1rem 2rem; }
-            .why { padding: 1.5rem 1rem; }
+            .context, .get-involved { padding-left: 1rem; padding-right: 1rem; }
         }
     </style>
-    <!-- GoatCounter analytics -->
     <script data-goatcounter="https://ourmarlee.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </head>
 <body>
 <div class="page">
 
-    <!-- HEADER -->
     <header>
         <div class="site-title">Marlee 4 Kids</div>
-        <div class="tagline">We <span class="heart">❤</span> Safe Streets</div>
+        <div class="tagline">We ❤ Safe Streets</div>
     </header>
 
-    <!-- HERO -->
     <section class="hero">
         <img src="child-bike_no-bg.PNG" alt="Child riding a bike on Marlee Avenue" class="hero-art">
-
         <p class="hero-statement">
-            Our kids deserve a <strong>Marlee Avenue</strong> where they can walk and bike safely.<br>
-            Help us make it happen.
+            The City has a plan to make <strong>Marlee Avenue</strong> safer for everyone.<br>
+            Let's make it happen.
         </p>
-
+        <p class="hero-sub">Join your neighbours in calling for protected bike lanes and wider sidewalks for kids, seniors, and everyone in between.</p>
         <a href="https://forms.microsoft.com/Pages/ResponsePage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAAMAAIlDcDFUN0Y1QkY0QUI2VkgzWFRFSzRaRjFCUTMwQi4u"
-           class="cta-primary">
-            Join the Campaign →
-        </a>
-        <p class="cta-subtext">Takes 30 seconds.</p>
+           class="cta-primary">Join the Campaign →</a>
+        <p class="cta-subtext">Takes 30 seconds. No spam, ever.</p>
     </section>
 
     <hr class="divider">
 
-    <!-- WHY -->
-    <section class="why">
-        <h2>Why it matters</h2>
-        <div class="why-facts">
-            <div class="fact">
-                <div class="fact-icon">🚲</div>
-                <p>Protected bike lanes reduce serious injuries for everyone on the road — not just cyclists.</p>
+    <section class="context">
+        <h2>What we're asking for</h2>
+        <p class="context-intro">Toronto has proposed two projects that would transform Marlee Avenue and Eglinton into safe, walkable, bikeable streets for our growing neighbourhood.<br>Both are stalled.</p>
+        <div class="project-cards">
+            <div class="project-card">
+                <div class="proj-label">Project 1</div>
+                <h3>Beltline Gap Connection</h3>
+                <p>A protected, bidirectional bike lane along Marlee Avenue from Eglinton to Roselawn, making it safe to bike our neighbourhood and along to the Beltline.</p>
+                <span class="status-badge">⏸ Paused by Councillor Colle</span>
             </div>
-            <div class="fact">
-                <div class="fact-icon">🚶</div>
-                <p>Wider sidewalks make Marlee accessible for strollers, wheelchairs, and everyone in between.</p>
-            </div>
-            <div class="fact">
-                <div class="fact-icon">🏘️</div>
-                <p>Safer streets help local businesses thrive — people on foot and bikes stop more often.</p>
+            <div class="project-card">
+                <div class="proj-label">Project 2</div>
+                <h3>EglintonTOday</h3>
+                <p>Approved bike lanes and pedestrian improvements along Eglinton that would link Marlee and communities across the city.</p>
+                <span class="status-badge">⏸ Delayed until Crosstown opens</span>
             </div>
         </div>
     </section>
 
     <hr class="divider" style="margin-bottom: 2rem;">
 
-    <!-- SECONDARY CTA -->
     <section class="write-section" id="write">
         <h2>Write to our Councillor</h2>
-        <p>Your voice matters. Send a quick note to Councillor Colle and Mayor Chow asking them to prioritize safe streets on Marlee.</p>
+        <p>Send a quick note to Councillor Colle and Mayor Chow asking them to move these projects forward.</p>
 
-        <div class="letter-box" id="letterText">Dear Councillor Colle and Mayor Chow,
+        <div class="letter-box">Dear Councillor Colle and Mayor Chow,
 
-I am a resident of the Marlee Village neighbourhood and I am writing to ask you to prioritize safe streets on Marlee Avenue.
+I am a resident of Marlee Village writing to express my strong support for protected bike lanes and pedestrian improvements on Marlee Avenue and Eglinton.
 
-Our neighbourhood needs protected bike lanes and wider sidewalks so that children, seniors, and families can get around safely. As density increases along Marlee, the need for safe, accessible streets only grows.
+I urge you to move forward with both the Beltline Gap Connection and the EglintonTOday improvements without further delay. As our neighbourhood grows denser around Glencairn Station, safe and accessible streets are essential — for children biking to school, seniors walking to services, and everyone getting around day to day.
 
-Please move forward with the Beltline Gap Connection and the Eglinton TOday improvements without further delay. Our community is counting on you.
+Our community deserves streets that work for everyone. Please prioritize these projects.
 
-Thank you for your time and consideration.
-
+Thank you,
 [Your name]
 [Your address, optional]</div>
 
-        <p class="letter-note">Feel free to personalize this message before sending.</p>
+        <p class="letter-note">Your own words carry extra weight — feel free to personalize before sending.</p>
 
         <div class="email-recipients">
             <span class="email-chip" onclick="copyEmail('councillor_colle8@toronto.ca')" title="Click to copy">📋 councillor_colle8@toronto.ca</span>
             <span class="email-chip" onclick="copyEmail('mayor_chow@toronto.ca')" title="Click to copy">📋 mayor_chow@toronto.ca</span>
         </div>
 
-        <a href="mailto:councillor_colle8@toronto.ca,mayor_chow@toronto.ca?subject=Safe%20Streets%20on%20Marlee%20Avenue&body=Dear%20Councillor%20Colle%20and%20Mayor%20Chow%2C%0A%0AI%20am%20a%20resident%20of%20the%20Marlee%20Village%20neighbourhood%20and%20I%20am%20writing%20to%20ask%20you%20to%20prioritize%20safe%20streets%20on%20Marlee%20Avenue.%0A%0AOur%20neighbourhood%20needs%20protected%20bike%20lanes%20and%20wider%20sidewalks%20so%20that%20children%2C%20seniors%2C%20and%20families%20can%20get%20around%20safely.%20As%20density%20increases%20along%20Marlee%2C%20the%20need%20for%20safe%2C%20accessible%20streets%20only%20grows.%0A%0APlease%20move%20forward%20with%20the%20Beltline%20Gap%20Connection%20and%20the%20Eglinton%20TOday%20improvements%20without%20further%20delay.%20Our%20community%20is%20counting%20on%20you.%0A%0AThank%20you%20for%20your%20time%20and%20consideration."
-           class="cta-secondary">
-            Open in Email App ✉️
-        </a>
+        <a href="mailto:councillor_colle8@toronto.ca,mayor_chow@toronto.ca?subject=Please%20move%20forward%20with%20safe%20streets%20on%20Marlee%20Avenue&body=Dear%20Councillor%20Colle%20and%20Mayor%20Chow%2C%0A%0AI%20am%20a%20resident%20of%20Marlee%20Village%20writing%20to%20express%20my%20strong%20support%20for%20protected%20bike%20lanes%20and%20pedestrian%20improvements%20on%20Marlee%20Avenue%20and%20Eglinton.%0A%0AI%20urge%20you%20to%20move%20forward%20with%20both%20the%20Beltline%20Gap%20Connection%20and%20the%20EglintonTOday%20improvements%20without%20further%20delay.%20As%20our%20neighbourhood%20grows%20denser%20around%20Glencairn%20Station%2C%20safe%20and%20accessible%20streets%20are%20essential%20%E2%80%94%20for%20children%20biking%20to%20school%2C%20seniors%20walking%20to%20services%2C%20and%20everyone%20getting%20around%20day%20to%20day.%0A%0AOur%20community%20deserves%20streets%20that%20work%20for%20everyone.%20Please%20prioritize%20these%20projects.%0A%0AThank%20you%2C%0A%5BYour%20name%5D%0A%5BYour%20address%2C%20optional%5D"
+           class="cta-secondary">Open in Email App ✉️</a>
     </section>
 
-    <!-- FOOTER -->
+    <section class="get-involved">
+        <h2>Want to do more?</h2>
+        <p>Volunteer, pick up a lawn sign, or just say hello — email Graham at <a href="mailto:graham.pressey@gmail.com">graham.pressey@gmail.com</a></p>
+    </section>
+
     <footer>
         <p>A community campaign by Marlee Village residents · <a href="https://www.ourmarlee.ca">ourmarlee.ca</a></p>
     </footer>
 
 </div>
 
-<!-- Toast notification -->
-<div class="toast" id="toast">Copied to clipboard!</div>
+<div class="toast" id="toast"></div>
 
 <script>
     function copyEmail(email) {
@@ -412,6 +435,5 @@ Thank you for your time and consideration.
         });
     }
 </script>
-
 </body>
 </html>
